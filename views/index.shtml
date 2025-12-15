@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Maia's Whimsical Movie Recommendations</h1>
+
+    <h3> Hello and welcome to my final project for CMSC335!
+        Get <em>sorta</em> personalized movie recommendations by filling out the form below!
+        Ignore the rating out of 10! I will be recommending bad movies with good vibes!
+    </h3>
+    <br>
+    <div class="preference-form">
+      <h2>Fill out the Form and Get Movies!</h2>
+      <form id="preferenceForm">
+        <div class="form-group">
+          <label for="genre">Preferred Genre:</label>
+          <select id="genre" name="genre" required>
+            <option value="">-- Select Genre --</option>
+            <option value="any">Any Genre</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="age">Your Age:</label>
+          <input type="number" id="age" name="age" min="1" max="120" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="mood">What Mood Are You In?</label>
+          <select id="mood" name="mood" required>
+            <option value="">-- Select Mood --</option>
+            <option value="any">Any Mood</option>
+            <option value="Exciting">Exciting</option>
+            <option value="Thrilling">Thrilling</option>
+            <option value="Whimsy">Whimsy</option>
+            <option value="Dramatic">Dramatic</option>
+          </select>
+        </div>
+        
+        <button type="submit">Find Movies</button>
+      </form>
+    </div>
+    
+    <!-- Results Section -->
+    <div id="resultsSection" style="display: none;">
+      <h2>Your Recommendations</h2>
+      <p id="resultsCount"></p>
+      <div class="movies-grid" id="moviesGrid"></div>
+    </div>
+  </div>
+  
+  <!-- Links to your JavaScript file in public/ folder -->
+  <script src="/app.js"></script>
+</body>
+</html>
