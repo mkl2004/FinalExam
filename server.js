@@ -24,7 +24,6 @@ app.get('/api/search-movies', async (req, res) => {
   const { genre, year, type } = req.query;
   
   try {
-    // This is a simplified example - you'll need to adapt based on the API
     const fetch = (await import('node-fetch')).default;
     const response = await fetch(
       `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${genre}&y=${year}&type=${type}`

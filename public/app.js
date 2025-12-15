@@ -1,4 +1,3 @@
-// Handle form submission
 document.getElementById('preferenceForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -9,7 +8,6 @@ document.getElementById('preferenceForm').addEventListener('submit', async (e) =
     await getRecommendations(genre, age, mood);
   });
   
-  // Fetch recommendations from backend
   async function getRecommendations(genre, age, mood) {
     try {
       const resultsSection = document.getElementById('resultsSection');

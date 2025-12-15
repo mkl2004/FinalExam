@@ -103,24 +103,22 @@ async function fetchMovieData(imdbId) {
       await mongoose.connect(process.env.MONGODB_URI);
       console.log('✓ Connected to MongoDB');
       
-      // Clear existing movies
+
       await Movie.deleteMany({});
       console.log('✓ Cleared existing movies');
       
       for (const movieData of movieList) {
         console.log(`Fetching data for ${movieData.imdbId}...`);
-        
-        // Get movie info from OMDB API
         const apiData = await fetchMovieData(movieData.imdbId);
         
         if (apiData.Response === 'True') {
-          // Combine API data with your review
+       
           const movie = new Movie({
             title: apiData.Title,
             imdbId: apiData.imdbID,
             year: apiData.Year,
             rated: apiData.Rated,
-            genre: apiData.Genre.split(', '), // Convert to array
+            genre: apiData.Genre.split(', '), 
             director: apiData.Director,
             plot: apiData.Plot,
             posterUrl: apiData.Poster,
@@ -138,7 +136,7 @@ async function fetchMovieData(imdbId) {
           console.log(`✗ Failed to fetch: ${movieData.imdbId} - ${apiData.Error}`);
         }
         
-        // Small delay to avoid rate limiting
+        
         await new Promise(resolve => setTimeout(resolve, 200));
       }
       
